@@ -37,7 +37,7 @@ class YustDocsBuilderState<T extends YustDoc>
   Stream<List<T>> _docStream;
 
   void initStream() {
-    _docStream = Yust.service.getDocs<T>(
+    _docStream = Yust.service().getDocs<T>(
       widget.modelSetup,
       filterList: widget.filter,
       orderByList: widget.orderBy,

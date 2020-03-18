@@ -45,12 +45,12 @@ class YustDocBuilderState<T extends YustDoc> extends State<YustDocBuilder<T>> {
 
   void initStream() {
     if (widget.id != null) {
-      _docStream = Yust.service.getDoc<T>(
+      _docStream = Yust.service().getDoc<T>(
         widget.modelSetup,
         widget.id,
       );
     } else {
-      _docStream = Yust.service.getFirstDoc<T>(
+      _docStream = Yust.service().getFirstDoc<T>(
         widget.modelSetup,
         widget.filter,
         orderByList: widget.orderBy,
@@ -100,7 +100,7 @@ class YustDocBuilderState<T extends YustDoc> extends State<YustDocBuilder<T>> {
         }
         var doc = snapshot.data;
         if (doc == null && widget._createIfNull) {
-          doc = Yust.service.initDoc<T>(widget.modelSetup);
+          doc = Yust.service().initDoc<T>(widget.modelSetup);
         }
         final opts = YustBuilderInsights(
           waiting: snapshot.connectionState == ConnectionState.waiting,
