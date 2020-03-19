@@ -166,10 +166,7 @@ class YustService {
   ///
   /// Optionally an existing document can be given, which will still be
   /// assigned a new id becoming a new document if it had an id previously.
-  T initDoc<T extends YustDoc>(
-    YustDocSetup<T> modelSetup, [
-    T doc,
-  ]) {
+  T initDoc<T extends YustDoc>(YustDocSetup<T> modelSetup, [T doc]) {
     if (doc == null) {
       doc = modelSetup.newDoc();
     }
